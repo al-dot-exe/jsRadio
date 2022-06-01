@@ -16,8 +16,8 @@ The front end design will be an actual radio that the user can click and change 
 - add the ability to turn the radio on and off when the play and pause button is clicked
 - add ability to turn the volume up or down when the volume button is scrolled up or down
 - add the ability to change the channel when the channel knob is scrolled up or down
-- make a basic server to handle these requests thus far
-- - index page request page request
+- make a basic server to handle these requests thus far x
+- - index page request page request x
 - - button off and on request
 - - volume up and down requests
 - - channel change requests
