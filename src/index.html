@@ -12,6 +12,8 @@
 
 <body>
   <h1>Broadcast Radio</h1>
+
+    <!-- Radio in Css -->
   <div class="container">
     <div class="tuning-container">
       <div class="antenna"></div>
@@ -20,7 +22,9 @@
           <p>FM</p>
           <p>AM</p>
         </div>
-        <p class="frequency">||||||||||||||||||||||||||||||||||||||||||||||||||||||||</p>
+            <!-- 50 Lines to correspond with 50 Top Stations -->
+        <ul class="frequency">||||||||||||||||||||||||||||||||||||||||||||||||||</ul> 
+
       </div>
       <div class="tuning-knob"></div>
     </div>
@@ -244,6 +248,16 @@
       </div>
     </div>
   </div>
+
+    <!-- Radio Station Logic-->
+
+    <!-- current country -->
+    <p id='station'></p>
+    <small id='cc'></small>
+
+    <audio autoplay>
+    HTML5 audio not supported in this browser..
+  </audio>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
 
