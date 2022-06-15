@@ -68,9 +68,10 @@ h1 {
   margin: 10px auto;
   position: relative;
   border-radius: 5px;
+  border: 2px solid green;
 }
 
-.tuning-container::after {
+.tuning-container::before {
   content: "";
   position: absolute;
   border: 3px solid black;
@@ -81,14 +82,16 @@ h1 {
 }
 
 .channel-display {
-  width: 68%;
+  width: 69%;
   height: 38px;
   background-color: #000;
   position: absolute;
   top: 15px;
   left: 10px;
   border-radius: 10px;
-  padding-top: 7px;
+  padding-top: 8px;
+  padding-left: 2px;
+  border: 2px solid cyan;
 }
 
 
@@ -108,12 +111,11 @@ h1 {
 }
 .frequency li {
   display: inline;
-  /* position: absolute; */
   width: 2%;
   height: 150%;
-  font-size: .9rem;
+  font-size: .87rem;
 }
-.frequency li.channel-needle {
+div.channel-needle {
   color: red;
 }
 
@@ -132,16 +134,16 @@ h1 {
   border-radius: 50%;
   color: black;
   position: absolute;
-  right: 10px;
+  right: 8px;
   top: 20%;
 }
-/* .tuning-knob::before { */
-/*   content: "Tuning"; */
-/*   position: absolute; */
-/*   left: -55px; */
-/*   font-size: 0.95rem; */
-/*   top: 27%; */
-/* } */
+.tuning-knob::before {
+  content: "Tuning";
+  position: absolute;
+  left: -52px;
+  font-size: 0.85rem;
+  top: 27%;
+}
 
 .bottom-part {
   width: 97%;
