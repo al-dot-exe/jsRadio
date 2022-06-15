@@ -5,28 +5,127 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radio</title>
+  <title>jsRadio</title>
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/normalise.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link href="css/xknob.css" type="text/css" rel="stylesheet">
+
+  <!--
+    THESE SCRIPTS MUST GO IN THE HEAD OF OUR HTML DOCUMENT 
+    Required for browsers that do not yet support the latest technologies, firefox is an example.
+    http://webcomponents.org/
+    https://github.com/webcomponents/webcomponentsjs/releases
+    -->
+  <script type="text/javascript">
+    if (!document.registerElement) {
+      document.writeln(decodeURI('%3Cscript%20src=%22https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.12/webcomponents.min.js%22%20type=%22text/javascript%22%3E%3C/script%3E'));
+    }
+  </script>
+  <!-- Script will run if certain webcomponents are detected -->
+  <script type="text/javascript">
+    if (window.WebComponents) {
+      document.writeln('<p>Note: <code>document.registerElement()</code> not detected, enabling the <a href="https://github.com/webcomponents/webcomponentsjs/releases">webcomponentsjs</a> polyfill.</p>');
+    }
+  </script>
+
+
+
+  <!-- SVG for our power knob the images go in the <head></head>
+    The styling for our svg should go in a css stylesheet eventually
+  -->
+
+  <svg style="display: none;">
+    <!-- Keeps Page from having crazy padding at the top for some reason-->
+    <!-- the knobs -->
+    <defs id="sample_gfx">
+      <!-- Power Button -->
+      <symbol id="long-stick" viewBox="-6 -6 12 12">
+        <rect x="-1" y="-5" rx="1" ry="1" width="2" height="10" stroke="#2e3436" fill="#ffe1a5" stroke-width="0.25" />
+        <line x1="0" y1="-3.75" x2="0" y2="-4.5" stroke="#000000" stroke-width="0.5px" stroke-linecap="round" />
+      </symbol>
+
+      <symbol id="channel-xknob" viewBox="-6 -6 12 12">
+        <circle cx="0" cy="0" r="5.875" stroke="#ffe1a5" fill="#000000" stroke-width="0.25" />
+        <line x1="0" y1="-1.5" x2="0" y2="-4.75" stroke="#ffe1a5" stroke-width="1px" stroke-linecap="round" />
+      </symbol>
+
+      <symbol id="volume-xknob" viewBox="-6 -6 12 12">
+        <circle cx="0" cy="0" r="5.875" stroke="#ffe1a5" fill="#000000" stroke-width="0.25" />
+        <line x1="0" y1="-1.5" x2="0" y2="-4.75" stroke="#ffe1a5" stroke-width="1.2px" stroke-linecap="round" />
+      </symbol>
+    </defs>
 </head>
 
 <body>
-  <h1>Broadcast Radio</h1>
+  <h1>jsRADIO</h1>
 
-    <!-- Radio in Css -->
+  <!-- Radio in Css -->
   <div class="container">
     <div class="tuning-container">
       <div class="antenna"></div>
-      <div class="channel-display">
-        <div class="AM-PM">
-          <p>FM</p>
-          <p>AM</p>
-        </div>
-            <!-- 50 Lines to correspond with 50 Top Stations -->
-        <ul class="frequency">||||||||||||||||||||||||||||||||||||||||||||||||||</ul> 
 
+      <div class="channel-display">
+        <div class="channel-frequencies">
+          <ul class="frequency">
+            <li id='1' class="channel-needle">|</li>
+            <li id='2'>|</li>
+            <li id='3'>|</li>
+            <li id='4'>|</li>
+            <li id='5'>|</li>
+            <li id='6'>|</li>
+            <li id='7'>|</li>
+            <li id='8'>|</li>
+            <li id='9'>|</li>
+            <li id='10'>|</li>
+            <li id='11'>|</li>
+            <li id='12'>|</li>
+            <li id='13'>|</li>
+            <li id='14'>|</li>
+            <li id='15'>|</li>
+            <li id='16'>|</li>
+            <li id='17'>|</li>
+            <li id='18'>|</li>
+            <li id='19'>|</li>
+            <li id='20'>|</li>
+            <li id='21'>|</li>
+            <li id='22'>|</li>
+            <li id='23'>|</li>
+            <li id='24'>|</li>
+            <li id='25'>|</li>
+            <li id='26'>|</li>
+            <li id='27'>|</li>
+            <li id='28'>|</li>
+            <li id='29'>|</li>
+            <li id='30'>|</li>
+            <li id='31'>|</li>
+            <li id='32'>|</li>
+            <li id='33'>|</li>
+            <li id='34'>|</li>
+            <li id='35'>|</li>
+            <li id='36'>|</li>
+            <li id='37'>|</li>
+            <li id='38'>|</li>
+            <li id='39'>|</li>
+            <li id='40'>|</li>
+            <li id='41'>|</li>
+            <li id='42'>|</li>
+            <li id='43'>|</li>
+            <li id='44'>|</li>
+            <li id='45'>|</li>
+            <li id='46'>|</li>
+            <li id='47'>|</li>
+            <li id='48'>|</li>
+            <li id='49'>|</li>
+            <li id='50'>|</li>
+          </ul>
+
+
+        </div>
+        <!-- 50 Lines to correspond with 50 Top Stations -->
       </div>
-      <div class="tuning-knob"></div>
+      <!--this xknob has not user functionality, must be a css issue -->
+      <x-knob svgsymbolid="channel-xknob" class="tuning&#45knob"></x-knob>
     </div>
 
     <div class="bottom-part">
@@ -232,33 +331,42 @@
           <div class="circle ten"></div>
           <div class="circle ten"></div>
           <div class="circle ten"></div>
+        </div>
+      </div>
 
+      <section class="knob-area">
+        <section>
+          <div class="power">
+            <P>ON</P>
+            <P>OFF</P>
+          </div>
+          <div>
+            <x-knob svgsymbolid="long-stick" class="knob knob-1" divisions="6" min="0.7" max="0.8333333333333334">
+            </x-knob>
+          </div>
+        </section>
+
+        <div>
+          <p class="volume">Volume</p>
+          <x-knob svgsymbolid="volume-xknob" class="knob knob-2" min="0" max="0.50"></x-knob>
         </div>
-      </div>
-      <div class="knob-area">
-        <div class="text">
-          <P>AFC</P>
-          <P>PM</P>
-          <P>AM</P>
-        </div>
-        <p class="volume">Volume</p>
-        <div class="knob knob-1">
-        </div>
-        <div class="knob knob-2"></div>
-      </div>
+      </section>
     </div>
   </div>
 
-    <!-- Radio Station Logic-->
+  <!-- Radio Station Logic-->
 
-    <!-- current country -->
-    <p id='station'></p>
-    <small id='cc'></small>
+  <!-- current country -->
+  <p id='station'></p>
+  <small id='cc'></small>
 
-    <audio autoplay>
+  <audio autoplay>
     HTML5 audio not supported in this browser..
   </audio>
-  <script type="text/javascript" src="js/main.js"></script>
+
+  <!-- Scripts  -->
+  <!-- <script type="text/javascript" src="js/main.js"></script> -->
+  <script src="js/xknob.js" type="text/javascript" async></script>
 </body>
 
 </html>

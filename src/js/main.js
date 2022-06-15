@@ -20,6 +20,7 @@ function changeRadioStation(stationChannel = 2, cc = 'us') {
   .then(res => res.json())
 
   .then(radioObj => {
+      console.log(radioObj);
        const radioStationsArray = radioObj["radios"] //an array of the top 50 stations
       const currentStation = radioStationsArray[stationChannel]; // selects a radio station from the radio array 
       const currentStationName = currentStation["name"]; // name of radio station to display
