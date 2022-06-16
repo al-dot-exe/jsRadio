@@ -4,7 +4,6 @@
   * DO NOT CHANGE OR THE NEEDLE WILL NOT MOVE WITH THE TUNING KNOB
   */
 function updateChannelNeedlePosition(){
-
   const tuningKnob = document.querySelector(".tuning-knob").value;
   const channelNeedle = document.querySelector("#channel-needle");
   const needlePosition = ((((tuningKnob * 100) + 48) / 1.92) * 1.95);
