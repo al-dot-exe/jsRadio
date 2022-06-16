@@ -45,6 +45,13 @@ const server = http.createServer((req, res) => {
       res.end();
     });
   } 
+  else if (page == '/js/xneedle.js') {
+    fs.readFile('js/xneedle.js', function(err, data) {
+      res.writeHead(200, { 'Content-Type': 'text/javascript' });
+      res.write(data);
+      res.end();
+    });
+  } 
   else if (page == '/js/xknob.js') {
     fs.readFile('js/xknob.js', function(err, data) {
       res.writeHead(200, { 'Content-Type': 'text/javascript' });

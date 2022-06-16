@@ -59,69 +59,69 @@
 
   <!-- Radio in Css -->
   <div class="container">
-      <div class="tuning-container">
-        <div class="antenna"></div>
+    <div class="tuning-container">
+      <div class="antenna"></div>
 
-        <div class="channel-display">
-          <div class="channel-frequencies">
-            <ul class="frequency">
-              <li id='1'>|</li>
-              <li id='2'>|</li>
-              <li id='3'>|</li>
-              <li id='4'>|</li>
-              <li id='5'>|</li>
-              <li id='6'>|</li>
-              <li id='7'>|</li>
-              <li id='8'>|</li>
-              <li id='9'>|</li>
-              <li id='10'>|</li>
-              <li id='11'>|</li>
-              <li id='12'>|</li>
-              <li id='13'>|</li>
-              <li id='14'>|</li>
-              <li id='15'>|</li>
-              <li id='16'>|</li>
-              <li id='17'>|</li>
-              <li id='18'>|</li>
-              <li id='19'>|</li>
-              <li id='20'>|</li>
-              <li id='21'>|</li>
-              <li id='22'>|</li>
-              <li id='23'>|</li>
-              <li id='24'>|</li>
-              <li id='25'>|</li>
-              <li id='26'>|</li>
-              <li id='27'>|</li>
-              <li id='28'>|</li>
-              <li id='29'>|</li>
-              <li id='30'>|</li>
-              <li id='31'>|</li>
-              <li id='32'>|</li>
-              <li id='33'>|</li>
-              <li id='34'>|</li>
-              <li id='35'>|</li>
-              <li id='36'>|</li>
-              <li id='37'>|</li>
-              <li id='38'>|</li>
-              <li id='39'>|</li>
-              <li id='40'>|</li>
-              <li id='41'>|</li>
-              <li id='42'>|</li>
-              <li id='43'>|</li>
-              <li id='44'>|</li>
-              <li id='45'>|</li>
-              <li id='46'>|</li>
-              <li id='47'>|</li>
-              <li id='48'>|</li>
-              <li id='49'>|</li>
-              <li id='50'>|</li>
-            </ul>
-            <!-- <div id="channel&#45;needle">|</div> -->
-          </div>
+      <div class="channel-display">
+        <div class="channel-frequencies">
           <!-- 50 Lines to correspond with 50 Top Stations -->
+          <ul class="frequency">
+            <li id='1'>|</li>
+            <li id='2'>|</li>
+            <li id='3'>|</li>
+            <li id='4'>|</li>
+            <li id='5'>|</li>
+            <li id='6'>|</li>
+            <li id='7'>|</li>
+            <li id='8'>|</li>
+            <li id='9'>|</li>
+            <li id='10'>|</li>
+            <li id='11'>|</li>
+            <li id='12'>|</li>
+            <li id='13'>|</li>
+            <li id='14'>|</li>
+            <li id='15'>|</li>
+            <li id='16'>|</li>
+            <li id='17'>|</li>
+            <li id='18'>|</li>
+            <li id='19'>|</li>
+            <li id='20'>|</li>
+            <li id='21'>|</li>
+            <li id='22'>|</li>
+            <li id='23'>|</li>
+            <li id='24'>|</li>
+            <li id='25'>|</li>
+            <li id='26'>|</li>
+            <li id='27'>|</li>
+            <li id='28'>|</li>
+            <li id='29'>|</li>
+            <li id='30'>|</li>
+            <li id='31'>|</li>
+            <li id='32'>|</li>
+            <li id='33'>|</li>
+            <li id='34'>|</li>
+            <li id='35'>|</li>
+            <li id='36'>|</li>
+            <li id='37'>|</li>
+            <li id='38'>|</li>
+            <li id='39'>|</li>
+            <li id='40'>|</li>
+            <li id='41'>|</li>
+            <li id='42'>|</li>
+            <li id='43'>|</li>
+            <li id='44'>|</li>
+            <li id='45'>|</li>
+            <li id='46'>|</li>
+            <li id='47'>|</li>
+            <li id='48'>|</li>
+            <li id='49'>|</li>
+            <li id='50'>|</li>
+          </ul>
+          <div id="channel-needle">|</div>
         </div>
-        <!--this xknob has not user functionality, must be a css issue -->
-      <x-knob svgsymbolid="channel-xknob" class="tuning&#45knob" min="-0.48" max="0.48"></x-knob>
+      </div>
+      <!--this xknob has not user functionality, must be a css issue -->
+      <x-knob svgsymbolid="channel-xknob" class="tuning-knob" min="-0.48" max="0.48" value="-0.48"></x-knob>
     </div>
 
     <div class="bottom-part">
@@ -337,14 +337,16 @@
             <P id='off-button'>OFF</P>
           </div>
           <div>
-            <x-knob svgsymbolid="long-stick" class="knob knob-1" divisions="6" min="0.7" max="0.8333333333333334">
+            <x-knob svgsymbolid="long-stick" class="knob knob-1" divisions="6" min="0.7" max="0.8333333333333334"
+              value="0.8333333333333334">
             </x-knob>
           </div>
         </section>
 
         <div>
           <p class="volume">Volume</p>
-          <x-knob svgsymbolid="volume-xknob" class="knob knob-2" divisions='24' min="0" max="0.50"></x-knob>
+          <x-knob svgsymbolid="volume-xknob" class="knob knob-2" divisions='24' min="0" max="0.50" value="0.25">
+          </x-knob>
         </div>
       </section>
     </div>
@@ -361,8 +363,11 @@
   </audio>
 
   <!-- Scripts  -->
-  <!-- <script type="text/javascript" src="js/main.js"></script> -->
-  <script src="js/xknob.js" type="text/javascript" async></script>
+  <!-- <script src="js/xknob.js" type="text/javascript" async></script> -->
+
+  <script type="text/javascript" src="js/main.js" async></script>
+  <script type="module" src="js/xknob.js"  async></script>
+  <script type="module" src="js/xneedle.js" async></script>
 </body>
 
 </html>

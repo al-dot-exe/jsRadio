@@ -345,3 +345,11 @@ template {
 [hidden] {
   display: none;
 }
+
+/**
+ * Clearfix for random elements that have collapsed containers
+ */
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
