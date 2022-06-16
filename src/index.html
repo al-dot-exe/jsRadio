@@ -56,6 +56,7 @@
 
 <body>
   <h1>jsRADIO</h1>
+  <h2 id='calculated-channel-number' style="visibility:hidden"></h2>
 
   <!-- Radio in Css -->
   <div class="container">
@@ -355,6 +356,7 @@
   <!-- Radio Station Logic-->
 
   <!-- current country -->
+  <p id='real-channel-number'></p>
   <p id='station'></p>
   <small id='cc'></small>
 
@@ -363,7 +365,7 @@
   </audio>
 
   <!-- Scripts  -->
-  <script type="text/javascript" src="js/main.js" async></script>
+  <script type="module" src="js/radio.js" async></script>
   <script type="module" src="js/xknob.js"  async></script>
   <script type="module" src="js/xneedle.js" async></script>
 </body>

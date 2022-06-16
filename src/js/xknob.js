@@ -1,4 +1,5 @@
-import { updateChannelNeedlePosition } from './xneedle.js';
+import { updateChannelNeedle } from './xneedle.js';
+import { changeRadioStation } from './radio.js';
 
 'use strict';
 
@@ -67,6 +68,10 @@ if (!window.XKnob) {
 
     // Should be attached to '.knob_gfx'.
     const start_dragging = function(ev) {
+      // showing calculated-channel-number during the drag
+      const calculatedChannelID = document.getElementById('calculated-channel-number');
+      calculatedChannelID.style.visibility = "visible";
+
       remove_listeners_from_document(ev.target);
       xknob_being_dragged = null;
 
@@ -102,6 +107,7 @@ if (!window.XKnob) {
 
       add_listeners_to_document(xknob);
 
+
       // Giving the element focus to enable keyboard events.
       // We need to do this here because we called preventDefault() and
       // stopPropagation().
@@ -111,6 +117,10 @@ if (!window.XKnob) {
     // Should be attached to the document, because this event may happen
     // outside of XKnob.
     var stop_dragging = function(ev) {
+      const calculatedChannelID = document.getElementById('calculated-channel-number');
+      const realChannelID = document.getElementById('real-channel-number');
+      calculatedChannelID.style.visibility = "hidden";
+
       if (!xknob_being_dragged) {
         remove_listeners_from_document(ev.target);
         return;
@@ -126,10 +136,19 @@ if (!window.XKnob) {
           'bubbles': true,
           'cancelable': false
         }));
+
       }
 
       remove_listeners_from_document(ev.target);
       xknob_being_dragged = null;
+
+      // Updates the channel at the end of the drag ONLY IF the channel needle has updated its value 
+      // This saves on api requests by not changing until the end the mouseup event AND doesn't change unless
+      // the value of the calculated channel channel number changes from the updated channel needle value.
+      if (calculatedChannelID.textContent !== realChannelID.textContent) {
+        changeRadioStation(updateChannelNeedle());
+      }
+
     }
 
     // Should be attached to the document, because this event may happen
@@ -492,6 +511,8 @@ if (!window.XKnob) {
             this.shadowRoot.querySelector('.knob_gfx').addEventListener('mousedown', start_dragging);
             this.shadowRoot.querySelector('.knob_gfx').addEventListener('touchstart', start_dragging);
             this._update_gfx_rotation();
+            // Function call to the change the channel and needle on our radio in real time whenever our XKnob is changed;
+            document.querySelector('#calculated-channel-number').textContent = updateChannelNeedle();
           }
         },
         '_update_value': {
@@ -526,9 +547,9 @@ if (!window.XKnob) {
             }
 
             this._update_gfx_rotation();
-
-            // Function call to the change the needle on our radio in real time whenever our XKnob is changed;
-            updateChannelNeedlePosition();
+            
+            // Function call to the change the calculated channel number and needle on our radio in real time whenever our XKnob is changed;
+            document.querySelector('#calculated-channel-number').textContent = updateChannelNeedle();
           }
         },
         '_update_gfx_rotation': {

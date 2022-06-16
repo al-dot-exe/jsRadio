@@ -38,8 +38,8 @@ const server = http.createServer((req, res) => {
   }
 
   // javascript
-  else if (page == '/js/main.js') {
-    fs.readFile('js/main.js', function(err, data) {
+  else if (page == '/js/radio.js') {
+    fs.readFile('js/radio.js', function(err, data) {
       res.writeHead(200, { 'Content-Type': 'text/javascript' });
       res.write(data);
       res.end();
