@@ -1,280 +1,280 @@
-*{
-    box-sizing: border-box;
-    border: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
 }
 
-body{
-    background-color: #FDD17A;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+body {
+  background-color: #fdd17a;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1{
-    margin-bottom: 7%;
-    text-transform: uppercase;
-    font-family: monospace;
-    font-size: 2rem;
-    font-weight: bold;
-
+h1 {
+  margin-bottom: 7%;
+  /* text-transform: uppercase; */
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-
-
-.container{
-    width: 400px;
-    height: 250px;
-    background-color: #907f5e;
-    border: 10px solid black;
-    border-radius: 10px;
-    position: relative;
+.container {
+  width: 400px;
+  height: 250px;
+  background-color: #907f5e;
+  border: 10px solid black;
+  border-radius: 10px;
+  position: relative;
 }
 
-.antenna{
-    position: absolute;
-    height: 70px; 
-    width: 5px;
-    background-color: #E7E7E7;
-    right: 15px;
-    top: -125%;
-    z-index: -1;
-  }
-
-  .antenna::before{
-      content: '';
-      height: 10px;
-      width: 10px;
-      right: -2px;
-      border-radius: 20%;
-      background-color: gainsboro;
-      position: absolute;
-  }
-
-  .antenna::after{
-    content: '';
-    position: absolute;
-    height: 20px;
-    width: 150%;
-    right: -30%;
-    bottom: 0;
-    background-color: gray;
-  }
-
-
-.tuning-container{
-    position: relative;
-    width: 98%;
-    height: 70px;
-    background-color: #FFE1A5;
-    margin: 10px auto;
-    position: relative;
-    border-radius: 5px;
+.antenna {
+  position: absolute;
+  height: 70px;
+  width: 5px;
+  background-color: #e7e7e7;
+  right: 15px;
+  top: -125%;
+  z-index: -1;
 }
 
-.tuning-container::after{
-    content: '';
-    position: absolute;
-    border: 3px solid black;
-    width: 97%;
-    height: 70%;
-    top:7px;
-    left: 3px;
-
+.antenna::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  right: -2px;
+  border-radius: 20%;
+  background-color: gainsboro;
+  position: absolute;
 }
 
-.channel-display{
-    width: 68%;
-    height: 38px;
-    background-color: #000;
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    border-radius: 10px;
-   
+.antenna::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 150%;
+  right: -30%;
+  bottom: 0;
+  background-color: gray;
 }
 
-.frequency{
-    color: #FFE1A5;
-    position: absolute;
-    top: 25%;
-    left: 17%;
-  
+.tuning-container {
+  position: relative;
+  width: 98%;
+  height: 70px;
+  background-color: #ffe1a5;
+  margin: 10px auto;
+  position: relative;
+  border-radius: 5px;
 }
 
-.AM-PM{
-    color: #FFE1A5;
-    font-size: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    justify-content: center;
-    padding-left: 1rem;
-    margin-top: 4px;
+.tuning-container::before {
+  content: "";
+  position: absolute;
+  border: 3px solid black;
+  width: 97%;
+  height: 70%;
+  top: 7px;
+  left: 3px;
+}
+
+.channel-display {
+  width: 70%;
+  height: 38px;
+  background-color: #000;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  border-radius: 10px;
+  padding: 8px 1px 0 1px;
 }
 
 
-.channel-display::after{
-    content: '';
-    position: absolute;
-    width: 84%;
-    height: 1px;
-    background-color: #FFE1A5;
-    top: 50%;
-    left: 25px;
+.channel-frequencies {
+  display: flex;
+  flex-flow: nowrap;
+  /* border: 2px solid green; */
+  width: 100%;
 }
 
-.tuning-knob{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    right: 10px;
-    top: 20%;
-}
-.tuning-knob::before{
-    content: 'Tuning';
-    position: absolute;
-    left: -50px;
-    top: 27%;
-}
-
-.bottom-part{
-    width: 97%;
-    height: 60%;
-    background-color: #907f5e;
-    margin: 0 auto;
-    position: relative;
-}
-
-.speaker-area{
-    width: 72%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.699);
-}
-
-
-.circles{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.2rem;
-    align-items: center;
-    justify-content: center;
-    padding-top: 3px;
-}
-
-.circle{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    box-shadow: #000;
-    background-color: #000;
-}
-
-.knob{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: black;
-    outline: 3px solid #FFE1A5;
-}
-
-.knob-1{
-    right: 10px;
-    top: 20px;
-    
+.frequency {
+  color: #ffe1a5;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  word-spacing: -25%;
+  padding: 0;
+  /* border: 1px solid blue; */
 
 }
-
-.knob-2{
-    right: 10px;
-    top: 85px;
+.frequency li {
+  display: inline-block;
+  width: 0.5%;
+  /* height: 100%; */
+  font-size: .9rem;
+  /* border: 1px solid red; */
+}
+div#channel-needle {
+  color: red;
+  position: absolute;
+  bottom: 10px;
+  left: 1.95%;
+  /* border: 1px solid red; */
 }
 
-.knob-1::before,
-.knob-2::before{
-    content: '';
-    position: absolute;
-    width: 38%;
-    height: 2px;
-    background-color: #FFE1A5;
+.channel-display::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #ffe1a5;
+  top: 50%;
 }
 
-.knob-1::before{
-    top: 50%;
-    left: 0px;
+.tuning-knob {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: black;
+  position: absolute;
+  right: 8px;
+  top: 20%;
+}
+.tuning-knob::before {
+  content: "Tuning";
+  position: absolute;
+  left: -52px;
+  font-size: 0.85rem;
+  top: 27%;
 }
 
-.knob-2::before{
-    top: 50%;
-    right: 0.2px;
+.bottom-part {
+  width: 97%;
+  height: 60%;
+  background-color: #907f5e;
+  margin: 0 auto;
+  position: relative;
 }
 
-
-
-.knob-2::after{
-    content: '';
-    position: absolute;
-    width: 43px;
-    height: 43px;
-    border: 2.5px solid #FFE1A5;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    transform: rotate(45deg);
-    top: -8px;
-    left: -6px;
-    border-style: dotted;
+.speaker-area {
+  width: 72%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.699);
 }
 
-
-.text{
-    width: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    text-align: right;
-    position: absolute;
-    right: 55px;
-    top: 17px;
+.circles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3px;
 }
 
-
-.text p,
-.volume{
-    font-size: 11px;
-    font-weight: bold;
-    color: #FFE1A5;
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: #000;
+  background-color: #000;
 }
 
-.volume{
-    position: absolute;
-    right: 50px;
-    bottom: 25%;
-    color: #ffe1a5c9;
+.knob {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  outline: 3px solid #ffe1a5;
 }
 
+.knob-1 {
+  right: 10px;
+  top: 20px;
+  /* border: 2px solid blue; */
+}
+
+.knob-2 {
+  right: 10px;
+  top: 85px;
+}
+
+/* .knob-1::before, */
+/* .knob-2::before { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   width: 35%; */
+/*   height: 2px; */
+/*   background-color: #ffe1a5; */
+/* } */
+
+/* .knob-2::before { */
+/*   top: 50%; */
+/*   right: 0.2px; */
+/* } */
+
+.knob-2::after {
+  content: "";
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  border: 2.5px solid #ffe1a5;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+  top: -8px;
+  left: -6px;
+  border-style: dotted;
+}
+
+.power {
+  width: 45px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+  /* text-align: right; */
+  position: absolute;
+  right: 40px;
+  top: 17px;
+}
+
+.power p,
+.volume {
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffe1a5;
+}
+
+.volume {
+  position: absolute;
+  right: 50px;
+  bottom: 25%;
+  color: #ffe1a5c9;
+}
 
 .square {
-    background-color: #1d1d1d;
-    box-shadow: 0 0 2px #000;
-    height: 16px;
-    width: 16px;
-    margin: 2px;
-    transition: 2s ease;
-  }
+  background-color: #1d1d1d;
+  box-shadow: 0 0 2px #000;
+  height: 16px;
+  width: 16px;
+  margin: 2px;
+  transition: 2s ease;
+}
 
-  h4{
-      padding-top: 1.5rem;
-  }
+h4 {
+  padding-top: 1.5rem;
+}
 
-
-  @media (max-width: 768px){
-      .ten{
-        display: none;
-      }
+@media (max-width: 768px) {
+  .ten {
+    display: none;
   }
+}
+
+/* Font Styling */
