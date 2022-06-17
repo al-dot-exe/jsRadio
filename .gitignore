@@ -1,6 +1,5 @@
 src/client-side/resources/sample-images/*
 src/node_modules/*
-src/package.json
 src/package-lock.json
 src/sample-server.js
 src/.env
