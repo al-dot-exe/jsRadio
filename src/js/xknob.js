@@ -68,9 +68,12 @@ if (!window.XKnob) {
 
     // Should be attached to '.knob_gfx'.
     const start_dragging = function(ev) {
-      // showing calculated-channel-number during the drag
-      const calculatedChannelID = document.getElementById('calculated-channel-number');
-      calculatedChannelID.style.visibility = "visible";
+
+      // showing calculated-channel-number during the tuning knob drag
+      if (ev.target.href.animVal === "#channel-xknob") {;
+        const calculatedChannelID = document.getElementById('calculated-channel-number');
+        calculatedChannelID.style.visibility = "visible";
+      }
 
       remove_listeners_from_document(ev.target);
       xknob_being_dragged = null;
@@ -510,6 +513,7 @@ if (!window.XKnob) {
 
             this.shadowRoot.querySelector('.knob_gfx').addEventListener('mousedown', start_dragging);
             this.shadowRoot.querySelector('.knob_gfx').addEventListener('touchstart', start_dragging);
+            
             this._update_gfx_rotation();
             // Function call to the change the channel and needle on our radio in real time whenever our XKnob is changed;
             document.querySelector('#calculated-channel-number').textContent = updateChannelNeedle();
