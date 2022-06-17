@@ -1,3 +1,6 @@
+
+// Radio Object will be written from server side above this comment 
+
 function changeRadioStation(stationChannel = 1, cc = 'us') {
     stationChannel -= 1; // converts to zero index just to query channel
        const radioStationsArray = radioObj["radios"] //an array of the top 50 stations
