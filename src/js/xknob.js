@@ -1,5 +1,5 @@
 import { updateChannelNeedle } from './xneedle.js';
-import { changeRadioStation } from './radio.js';
+import { changeRadioStation, turnRadioOff, turnRadioOn } from './radio.js';
 
 'use strict';
 
@@ -69,8 +69,8 @@ if (!window.XKnob) {
     // Should be attached to '.knob_gfx'.
     const start_dragging = function(ev) {
 
-      // showing calculated-channel-number during the tuning knob drag
-      if (ev.target.href.animVal === "#channel-xknob") {;
+      // showing calculated-channel-number during the first click of tuning knob drag
+      if (ev.target.href.animVal === "#channel-xknob") {
         const calculatedChannelID = document.getElementById('calculated-channel-number');
         calculatedChannelID.style.visibility = "visible";
       }
@@ -145,13 +145,19 @@ if (!window.XKnob) {
       remove_listeners_from_document(ev.target);
       xknob_being_dragged = null;
 
+      // sanity check for power status not as clean of a fix ; will optimize eventually
+      const powerKnob = document.querySelector('.knob-1').value;
+      powerKnob > 0.75 ? turnRadioOn() : turnRadioOff();
+
       // Updates the channel at the end of the drag ONLY IF the channel needle has updated its value 
-      // This saves on api requests by not changing until the end the mouseup event AND doesn't change unless
-      // the value of the calculated channel channel number changes from the updated channel needle value.
-      if (calculatedChannelID.textContent !== realChannelID.textContent) {
+      // AND the radio is on
+      // else just update the current real channel
+      if (calculatedChannelID.textContent !== realChannelID.textContent && (document.querySelector('#on-button').hasAttribute('class'))) {// if radio is on
         changeRadioStation(updateChannelNeedle());
       }
-
+      else {
+        realChannelID.textContent = calculatedChannelID.textContent;
+      }
     }
 
     // Should be attached to the document, because this event may happen
@@ -202,7 +208,13 @@ if (!window.XKnob) {
         }));
       }
 
-      // custom code to change the radio needle in real time
+      // custom code to change the power status in real time; Currently a lil messy of a solution
+      // and requires another similar function call after the drag has ended.
+      // This will require sometime to think over
+      if (ev.target.svgsymbolid === "power-xknob") {
+        const powerKnob = document.querySelector('.knob-1');
+        powerKnob.value < 0.75 ? turnRadioOff() : turnRadioOn();
+      }
     }
 
     // Keyboard support when receiving focus.

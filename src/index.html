@@ -36,7 +36,7 @@
     <!-- the knobs -->
     <defs id="sample_gfx">
       <!-- Power Button -->
-      <symbol id="long-stick" viewBox="-6 -6 12 12">
+      <symbol id="power-xknob" viewBox="-6 -6 12 12">
         <rect x="-1" y="-5" rx="1" ry="1" width="3" height="10" stroke="#2e3436" fill="#ffe1a5" stroke-width="0.25" />
         <line x1="0" y1="-3.75" x2="0" y2="-4.5" stroke="#000000" stroke-width="0.5px" stroke-linecap="round" />
       </symbol>
@@ -331,17 +331,17 @@
       </div>
 
       <section class="knob-area">
-        <section>
+        <div>
           <div class="power">
-            <P id='on-button'>ON</P>
+            <P id='on-button' class='power-status'>ON</P>
             <P id='off-button'>OFF</P>
           </div>
-          <div>
-            <x-knob svgsymbolid="long-stick" class="knob knob-1" divisions="6" min="0.7" max="0.8333333333333334"
+          <!-- <div> -->
+            <x-knob svgsymbolid="power-xknob" class="knob knob-1" divisions="6" min="0.7" max="0.8333333333333334"
               value="0.8333333333333334">
             </x-knob>
-          </div>
-        </section>
+          <!-- </div> -->
+        </div>
 
         <div>
           <p class="volume">Volume</p>
