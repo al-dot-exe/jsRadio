@@ -18,6 +18,7 @@ With that said I did come across some useful libraries to help with speed up the
 
 ## Updates and Optimizations
 x Managed to add a channel buffer functionality that ensures that if you scroll away from your current channel and finish on the same channel after the mouse is released that a query for the web broadcast isn't made.
+
 x Since the api is limited to a very small amount of monthly queries, I decided to handle the api requests on the backend and respond to the client with a json object that includes the list of radio stations. This ensured not only api request were limited but protected the API key from being exposed client-side.
 
 ### Future Optimizations
