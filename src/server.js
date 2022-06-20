@@ -1,4 +1,3 @@
-// Make sure to set up the server and install the required modules using npm
 require('dotenv').config();
 const http = require('http');
 const fs = require('fs')
@@ -6,7 +5,7 @@ const url = require('url');
 const fetch = require('cross-fetch');
 const querystring = require('querystring');
 const figlet = require('figlet');
-const PORT = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 const apiKey = process.env.APIKEY;
 
 const server = http.createServer((req, res) => {
@@ -131,4 +130,4 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, () => console.log('jsRadio has started on Port 8000!\nTune in to listen...'));
+server.listen(port, () => console.log(`jsRadio has started on ${port}!\nTune in to listen...`));
