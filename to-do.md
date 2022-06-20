@@ -20,5 +20,5 @@ x add the ability to turn the radio on and off when the play and pause button is
 x add ability to turn the volume up or down when the volume button is scrolled up or down
 
 - make a basic server to handle these requests thus far x
-x - channel change requests
+x - add support for the global radio broadcasting server side
 

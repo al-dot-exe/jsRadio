@@ -3,7 +3,6 @@
   border: 0;
   margin: 0;
 }
-
 body {
   background-color: #fdd17a;
   height: 100vh;
@@ -12,15 +11,22 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+body > * {
+  height: 100%;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 75%;
+}
 h1 {
   margin-bottom: 7%;
-  /* text-transform: uppercase; */
   font-family: monospace;
   font-size: 2rem;
   font-weight: bold;
 }
-
 .container {
   width: 400px;
   height: 250px;
@@ -29,7 +35,6 @@ h1 {
   border-radius: 10px;
   position: relative;
 }
-
 .antenna {
   position: absolute;
   height: 70px;
@@ -39,7 +44,6 @@ h1 {
   top: -125%;
   z-index: -1;
 }
-
 .antenna::before {
   content: "";
   height: 10px;
@@ -49,7 +53,6 @@ h1 {
   background-color: gainsboro;
   position: absolute;
 }
-
 .antenna::after {
   content: "";
   position: absolute;
@@ -59,7 +62,6 @@ h1 {
   bottom: 0;
   background-color: gray;
 }
-
 .tuning-container {
   position: relative;
   width: 98%;
@@ -69,7 +71,6 @@ h1 {
   position: relative;
   border-radius: 5px;
 }
-
 .tuning-container::before {
   content: "";
   position: absolute;
@@ -79,7 +80,6 @@ h1 {
   top: 7px;
   left: 3px;
 }
-
 .channel-display {
   width: 70%;
   height: 38px;
@@ -90,12 +90,9 @@ h1 {
   border-radius: 10px;
   padding: 8px 1px 0 1px;
 }
-
-
 .channel-frequencies {
   display: flex;
   flex-flow: nowrap;
-  /* border: 2px solid green; */
   width: 100%;
 }
 
@@ -106,24 +103,18 @@ h1 {
   height: 100%;
   word-spacing: -25%;
   padding: 0;
-  /* border: 1px solid blue; */
-
 }
 .frequency li {
   display: inline-block;
   width: 0.5%;
-  /* height: 100%; */
-  font-size: .9rem;
-  /* border: 1px solid red; */
+  font-size: 0.9rem;
 }
 div#channel-needle {
   color: red;
   position: absolute;
   bottom: 10px;
   left: 1.95%;
-  /* border: 1px solid red; */
 }
-
 .channel-display::after {
   content: "";
   position: absolute;
@@ -132,7 +123,6 @@ div#channel-needle {
   background-color: #ffe1a5;
   top: 50%;
 }
-
 .tuning-knob {
   width: 40px;
   height: 40px;
@@ -149,7 +139,6 @@ div#channel-needle {
   font-size: 0.85rem;
   top: 27%;
 }
-
 .bottom-part {
   width: 97%;
   height: 60%;
@@ -157,13 +146,11 @@ div#channel-needle {
   margin: 0 auto;
   position: relative;
 }
-
 .speaker-area {
   width: 72%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.699);
 }
-
 .circles {
   display: flex;
   flex-wrap: wrap;
@@ -172,7 +159,6 @@ div#channel-needle {
   justify-content: center;
   padding-top: 3px;
 }
-
 .circle {
   width: 10px;
   height: 10px;
@@ -180,7 +166,6 @@ div#channel-needle {
   box-shadow: #000;
   background-color: #000;
 }
-
 .knob {
   position: absolute;
   width: 30px;
@@ -189,32 +174,14 @@ div#channel-needle {
   background-color: black;
   outline: 3px solid #ffe1a5;
 }
-
 .knob-1 {
   right: 10px;
   top: 20px;
-  /* border: 2px solid blue; */
 }
-
 .knob-2 {
   right: 10px;
   top: 85px;
 }
-
-/* .knob-1::before, */
-/* .knob-2::before { */
-/*   content: ""; */
-/*   position: absolute; */
-/*   width: 35%; */
-/*   height: 2px; */
-/*   background-color: #ffe1a5; */
-/* } */
-
-/* .knob-2::before { */
-/*   top: 50%; */
-/*   right: 0.2px; */
-/* } */
-
 .knob-2::after {
   content: "";
   position: absolute;
@@ -229,7 +196,6 @@ div#channel-needle {
   left: -6px;
   border-style: dotted;
 }
-
 .power {
   width: 45px;
   height: 35px;
@@ -243,21 +209,18 @@ div#channel-needle {
   right: 40px;
   top: 17px;
 }
-
 .power p,
 .volume {
   font-size: 11px;
   font-weight: bold;
   color: #ffe1a5;
 }
-
 .volume {
   position: absolute;
   right: 50px;
   bottom: 25%;
   color: #ffe1a5c9;
 }
-
 .square {
   background-color: #1d1d1d;
   box-shadow: 0 0 2px #000;
@@ -266,11 +229,33 @@ div#channel-needle {
   margin: 2px;
   transition: 2s ease;
 }
-
 h4 {
   padding-top: 1.5rem;
 }
 
+body section > p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 95%;
+  height: 25vh;
+  color: black;
+  font-size: 2.1rem;
+}
+footer a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #5d5d5d;
+  transition: .2s;
+}
 @media (max-width: 768px) {
   .ten {
     display: none;
