@@ -13,7 +13,7 @@ With all of the different frameworks available to us today, this project was rea
 
 While Cornelius made the radio's UI design, I spent the next couple of weeks giving the radio knobs functionality with user input, adding the radio api to the backend and bringing the whole thing to life using vanilla javascript on both the frontend and backend; no express, no react, just javascript and its environment apis!
 
-With that said I did come across some useful libraries to help with speed up the knob interaction process, so shoutout to [denilsona](https://github.com/denilsonsa) for putting together [html5-xknob](https://github.com/denilsonsa/html5-knob) to make the math easier to get through.
+With that said I did come across some useful libraries to help speed up the knob interaction process, so shoutout to [denilsona](https://github.com/denilsonsa) for putting together [html5-xknob](https://github.com/denilsonsa/html5-knob) to make the math easier to get through.
 
 
 ## Updates and Optimizations
