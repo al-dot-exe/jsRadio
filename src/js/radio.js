@@ -1,7 +1,8 @@
 
 // Radio Object will be written from server side above this comment 
+changeRadioStation(); // starts radio service
 
-changeRadioStation();
+
 
 function changeRadioStation(stationChannel = 1) {
     stationChannel -= 1; // converts to zero index just to query channel
@@ -31,5 +32,9 @@ function turnRadioOn(){
   document.querySelector('audio').muted = false;
 }
 
+function changeVolume(newVolume){
+  const audio = document.querySelector('audio');
+  audio.volume = newVolume * 2;
+}
 
-export { changeRadioStation, turnRadioOff, turnRadioOn };
+export { changeRadioStation, turnRadioOff, turnRadioOn, changeVolume };

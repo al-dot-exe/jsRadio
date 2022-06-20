@@ -16,8 +16,8 @@ x Find an API that will link to an internet radio service
 x build out the client side api request to tune into a single radio channel
 
 x add the ability to change the channel when the channel knob is scrolled up or down for a single country
-- add the ability to turn the radio on and off when the play and pause button is clicked
-- add ability to turn the volume up or down when the volume button is scrolled up or down
+x add the ability to turn the radio on and off when the play and pause button is clicked
+x add ability to turn the volume up or down when the volume button is scrolled up or down
 
 - make a basic server to handle these requests thus far x
 x - channel change requests

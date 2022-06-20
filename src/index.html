@@ -24,7 +24,7 @@
   <!-- Script will run if certain webcomponents are detected -->
   <script type="text/javascript">
     if (window.WebComponents) {
-      document.writeln('<p>Note: <code>document.registerElement()</code> not detected, enabling the <a href="https://github.com/webcomponents/webcomponentsjs/releases">webcomponentsjs</a> polyfill.</p>');
+      console.log('Note: document.registerElement() not detected, enabling the "https://github.com/webcomponents/webcomponentsjs/releases">webcomponentsjs polyfill');
     }
   </script>
 
@@ -345,7 +345,7 @@
 
         <div>
           <p class="volume">Volume</p>
-          <x-knob svgsymbolid="volume-xknob" class="knob knob-2" divisions='24' min="0" max="0.50" value="0.25">
+          <x-knob svgsymbolid="volume-xknob" class="knob knob-2" divisions='50' min="0" max="0.50" value="0.26">
           </x-knob>
         </div>
       </section>

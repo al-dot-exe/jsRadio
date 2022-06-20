@@ -1,5 +1,5 @@
 import { updateChannelNeedle } from './xneedle.js';
-import { changeRadioStation, turnRadioOff, turnRadioOn } from './radio.js';
+import { changeRadioStation, turnRadioOff, turnRadioOn, changeVolume } from './radio.js';
 
 'use strict';
 
@@ -147,12 +147,15 @@ if (!window.XKnob) {
 
       // sanity check for power status not as clean of a fix ; will optimize eventually
       const powerKnob = document.querySelector('.knob-1').value;
-      powerKnob > 0.75 ? turnRadioOn() : turnRadioOff();
+      if (ev.target.svgsymbolid === "power-xknob") {
+          powerKnob > 0.75 && ev.target.svgsymbolid === "power-xknob" ? turnRadioOn() : turnRadioOff();
+      }
 
-      // Updates the channel at the end of the drag ONLY IF the channel needle has updated its value 
+
+      // Changes the channel at the end of the drag ONLY IF the channel needle has updated its value 
       // AND the radio is on
       // else just update the current real channel
-      if (calculatedChannelID.textContent !== realChannelID.textContent && (document.querySelector('#on-button').hasAttribute('class'))) {// if radio is on
+      if (calculatedChannelID.textContent !== realChannelID.textContent && (document.querySelector('#on-button').hasAttribute('class'))) {
         changeRadioStation(updateChannelNeedle());
       }
       else {
@@ -215,6 +218,11 @@ if (!window.XKnob) {
         const powerKnob = document.querySelector('.knob-1');
         powerKnob.value < 0.75 ? turnRadioOff() : turnRadioOn();
       }
+
+      // always check the volume change during any knob drag. this could be more granular of course but 
+      // it's a simple fix right now
+      const volumeKnob = document.querySelector('.knob-2').value;
+      changeVolume(volumeKnob);
     }
 
     // Keyboard support when receiving focus.
